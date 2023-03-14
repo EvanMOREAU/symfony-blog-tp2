@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="M00Bb3V" resname="Hello!">
+        <source>Hello!</source>
+        <target>Bonjour !</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="YsVAIxB" resname="Our formations">
+        <source>Our formations</source>
+        <target>Nos formations</target>
+      </trans-unit>
+      <trans-unit id=".9NEkx0" resname="Upcoming formations">
+        <source>Upcoming formations</source>
+        <target>Formations à venir</target>
+      </trans-unit>
+      <trans-unit id="N6vpEL6" resname="Suggest a formation">
+        <source>Suggest a formation</source>
+        <target>Proposer une formation</target>
+      </trans-unit>
+      <trans-unit id="Yx2g6Fh" resname="Give your opinion">
+        <source>Give your opinion</source>
+        <target>Donner votre avis</target>
+      </trans-unit>
+      <trans-unit id="Np40DHt" resname="Our center">
+        <source>Our center</source>
+        <target>Centre de formation</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
