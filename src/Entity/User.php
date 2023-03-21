@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -33,6 +35,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'speaker', targetEntity: Formation::class)]
+    private Collection $formations;
+
+    #[ORM\OneToMany(mappedBy: 'createdBy', targetEntity: Formation::class)]
+    private Collection $formationsCreatedBy;
+
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
+        $this->formationsCreatedBy = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->email;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +128,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Formation>
+     */
+    public function getFormations(): Collection
+    {
+        return $this->formations;
+    }
+
+    public function addFormation(Formation $formation): self
+    {
+        if (!$this->formations->contains($formation)) {
+            $this->formations->add($formation);
+            $formation->setSpeaker($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(Formation $formation): self
+    {
+        if ($this->formations->removeElement($formation)) {
+            // set the owning side to null (unless already changed)
+            if ($formation->getSpeaker() === $this) {
+                $formation->setSpeaker(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Formation>
+     */
+    public function getFormationsCreatedBy(): Collection
+    {
+        return $this->formationsCreatedBy;
+    }
+
+    public function addFormationsCreatedBy(Formation $formationsCreatedBy): self
+    {
+        if (!$this->formationsCreatedBy->contains($formationsCreatedBy)) {
+            $this->formationsCreatedBy->add($formationsCreatedBy);
+            $formationsCreatedBy->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormationsCreatedBy(Formation $formationsCreatedBy): self
+    {
+        if ($this->formationsCreatedBy->removeElement($formationsCreatedBy)) {
+            // set the owning side to null (unless already changed)
+            if ($formationsCreatedBy->getCreatedBy() === $this) {
+                $formationsCreatedBy->setCreatedBy(null);
+            }
+        }
 
         return $this;
     }
