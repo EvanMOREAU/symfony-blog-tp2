@@ -30,6 +30,7 @@ class FormationRepository extends ServiceEntityRepository
         }
     }
 
+
     public function remove(Formation $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

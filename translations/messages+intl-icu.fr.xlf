@@ -45,6 +45,10 @@
         <source>Sign in</source>
         <target>Connexion</target>
       </trans-unit>
+      <trans-unit id="EDRROVB" resname="Catalogue">
+        <source>Catalogue</source>
+        <target>Catalogue</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

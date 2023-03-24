@@ -2,17 +2,27 @@
 
 namespace App\Controller;
 
+use DateTimeImmutable;
 use App\Entity\Formation;
 use App\Form\FormationType;
 use App\Repository\FormationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/formation')]
 class FormationController extends AbstractController
 {
+
+    #[Route('/catalog', name: 'app_formation_catalog', methods: ['GET'])]
+    public function catalog(FormationRepository $formationRepository): Response
+    {
+        return $this->render('formation/index.html.twig', [
+            'formations' => $formationRepository->findAllInTheFuture(),
+        ]);
+    }
+
     #[Route('/', name: 'app_formation_index', methods: ['GET'])]
     public function index(FormationRepository $formationRepository): Response
     {
@@ -25,6 +35,8 @@ class FormationController extends AbstractController
     public function new(Request $request, FormationRepository $formationRepository): Response
     {
         $formation = new Formation();
+        $formation->setCreatedAt(new DateTimeImmutable());
+        $formation->setCreatedBy($this->getUser());
         $form = $this->createForm(FormationType::class, $formation);
         $form->handleRequest($request);
 
