@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use DateTime;
 use App\Entity\Formation;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Formation>
@@ -39,6 +40,21 @@ class FormationRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+   /**
+    * @return Formation[] Returns an array of Formation objects
+    */
+   public function findAllInTheFuture(): array
+   {
+       return $this->createQueryBuilder('f')
+           ->andWhere('f.startDateTime > :val')
+           ->setParameter('val', new DateTime())
+           ->orderBy('f.startDateTime', 'ASC')
+           ->setMaxResults(3)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    /**
 //     * @return Formation[] Returns an array of Formation objects

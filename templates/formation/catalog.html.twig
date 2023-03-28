@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+    <h1>Formation index</h1>
+    <table class='table'>
+    {% for formation in formations %}
+        <td>
+            <div class="card" style="width: 18rem;">
+                <img src="/img/fcpro2.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ formation.name }}</h5>
+                    <p class="card-text">{{ formation.content }}</p>
+                    <a href="#" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+        <td>
+    
+    
+    {% else %}
+            <div class="card" aria-hidden="true">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+            <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-6"></span>
+            <span class="placeholder col-8"></span>
+            </p>
+            <a class="btn btn-primary disabled placeholder col-6"></a>
+        </div>
+        </div>
+    {% endfor %}
+    </table>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <!--<th>Content</th>-->
+                <th>Capacity</th>
+                <th>Price</th>
+
+                <!--<th>Description</th>-->
+                <th>StartDateTime</th>
+                <th>EndDateTime</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.name }}</td>
+                <!--<td>{{ formation.content }}</td>-->
+                <td>{{ formation.capacity }}</td>
+                <td>{{ formation.price }}</td>
+                <!--<td>{{ formation.description }}</td>-->
+                <td>{{ formation.startDateTime ? formation.startDateTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ formation.endDateTime ? formation.endDateTime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
