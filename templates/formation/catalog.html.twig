@@ -8,7 +8,7 @@
     {% for formation in formations %}
         <td>
                 <div class="card" style="width: 20rem;">
-                    <img src="/img/fcpro2.png" class="card-img-top" alt="...">
+                    <img src="{{ asset('uploads/images/' ~ formation.imageFilename) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ formation.name }}</h5>
                         <p class="card-text">{{ formation.content }}</p>
@@ -30,16 +30,16 @@
                                     <strong> Description :</strong> {{ formation.description }}<br><hr>
                                     
                                 </div>
-                                <!--<div class="dropdown mt-3">
+                                <div class="dropdown mt-3">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                    Dropdown button
+                                    Actions
                                 </button>
-                                
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>-->
+                                    <ul align='center' class="dropdown-menu">
+                                    
+                                        <li><a class="dropdown-item" href="/formation/pdf/{{ formation.id }}">Installer la fiche PDF</a></li>
+                                        <!--<li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="#">Action</a></li>-->
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -100,5 +100,71 @@
         {% endfor %}
         </tbody>
     </table>
+
+
+
+
+
+    
+    <div width="100%" id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+        <div class="carousel-inner">
+            <table class='table'>
+                {% set number = 0 %}
+                {% for formation in formations %}
+                {% set number = number + 1 %}
+                    <div class="carousel-item {% if number > 1 %} active {% endif %}">
+                        <td>
+                            <div class="card" style="width: 15 rem;">
+                                <img src="{{ asset('uploads/images/' ~ formation.imageFilename) }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ formation.name }}</h5>
+                                        <p class="card-text">{{ formation.content }}</p>
+                                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas-{{ formation.id }}" role="button" aria-controls="offcanvasExample">
+                                            Détails
+                                            </a>
+                                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-{{ formation.id }}" aria-labelledby="offcanvasExampleLabel">
+                                            <div class="offcanvas-header">
+                                                <h5 class="offcanvas-title" id="offcanvas-{{ formation.name }}">{{ formation.name }}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                            </div>
+                                            <div class="offcanvas-body">
+                                                <div align='center'>
+                                                    <strong> Dates : </strong>{{ formation.startDateTime ? formation.startDateTime|date('d/m/Y') : '' }} - {{ formation.endDateTime ? formation.endDateTime|date('d/m/Y') : '' }}<br><hr>
+                                                    <strong> Tarif :</strong> {{ formation.price }}€<br><hr>
+                                                    <strong> Capacité :</strong> {{ formation.capacity }} personnes.<br><hr>
+                                                    <strong> Contenu :</strong> {{ formation.content }}<br><hr>
+                                                    <strong> Description :</strong> {{ formation.description }}<br><hr>
+                                                </div>
+                                                <div class="dropdown mt-3">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                    Actions
+                                                </button>
+                                                <ul align='center' class="dropdown-menu">
+                                                
+                                                    <li><a class="dropdown-item" href="/formation/pdf/{{ formation.id }}">Installer la fiche PDF</a></li>
+                                                    <!--<li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <td>
+                    </div>
+                {% endfor %}
+            </table>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
 
 {% endblock %}
