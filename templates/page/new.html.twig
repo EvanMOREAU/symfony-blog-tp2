@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Page{% endblock %}
+{% block title %}Nouvelle page{% endblock %}
 
 {% block body %}
-    <h1>Create new Page</h1>
+    <h1>Nouvelle page</h1>
 
     {{ include('page/_form.html.twig') }}
 
-    <a class="btn btn-danger" href="{{ path('app_page_index') }}">Retour</a>
+    <br><a class="btn btn-secondary" href="{{ path('app_page_index') }}">Revenir à la liste</a>
 {% endblock %}

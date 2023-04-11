@@ -10,8 +10,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class PageFixtures extends Fixture
 {
     private $translator;
-    
-    public function __construct(TranslatorInterface $translator){
+
+    public function __construct(TranslatorInterface $translator) {
         $this->translator = $translator;
     }
     public function load(ObjectManager $manager): void
@@ -19,7 +19,6 @@ class PageFixtures extends Fixture
         $home = new Page();
         $home->setTitle($this->translator->trans("Home"));
         $home->setText("<h1>" . $this->translator->trans("Home") . "</h1>");
-
         $manager->persist($home);
 
         $manager->flush();

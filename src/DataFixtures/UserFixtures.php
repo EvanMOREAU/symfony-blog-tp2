@@ -11,7 +11,7 @@ class UserFixtures extends Fixture
 {
     private $passwordHasher;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher){
+    public function __construct(UserPasswordHasherInterface $passwordHasher) {
         $this->passwordHasher = $passwordHasher;
     }
 
@@ -29,7 +29,9 @@ class UserFixtures extends Fixture
         $superAdmin->setRoles([
             "ROLE_SUPER_ADMIN",
         ]);
+
         $manager->persist($superAdmin);
+
         $manager->flush();
     }
 }

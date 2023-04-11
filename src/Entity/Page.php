@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 #[ORM\Table(name: 'tbl_page')]
-
 class Page
 {
     #[ORM\Id]
@@ -67,5 +66,4 @@ class Page
 
         return $this;
     }
-
 }

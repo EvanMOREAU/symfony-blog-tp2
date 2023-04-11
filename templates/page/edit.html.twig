@@ -1,13 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Page{% endblock %}
+{% block title %}Modifier la page{% endblock %}
 
 {% block body %}
-    <h1>Edit Page</h1>
-
-    {{ include('page/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a class="btn btn-primary" href="{{ path('app_page_index') }}">back to list</a>
-
-    {{ include('page/_delete_form.html.twig') }}
+    <h1>Modifier la page</h1>
+        {{ include('page/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        <br>
+        {{ include('page/_delete_form.html.twig') }}
 {% endblock %}

@@ -41,15 +41,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'createdBy', targetEntity: Formation::class)]
     private Collection $formationsCreatedBy;
 
+    public function __toString() {
+        return $this->email;
+    }
+
     public function __construct()
     {
         $this->formations = new ArrayCollection();
         $this->formationsCreatedBy = new ArrayCollection();
     }
 
-    public function __toString(){
-        return $this->email;
-    }
     public function getId(): ?int
     {
         return $this->id;

@@ -14,13 +14,13 @@
 
         <input type="text" id="username" name="_username" value="{{ last_username }}">
 
-        <label for="password">Password:</label>
+        <label for="password">{{'Password:'|trans}}</label>
         <input type="password" id="password" name="_password">
 
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"> #}
 
-        <button class="btn btn-primary" type="submit">login</button>
+        <button class="btn btn-primary" type="submit">{{'login'|trans}}</button>
     </form>
     
 {% endblock %}

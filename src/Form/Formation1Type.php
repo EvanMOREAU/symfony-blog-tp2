@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FormationType extends AbstractType
+class Formation1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -17,9 +17,9 @@ class FormationType extends AbstractType
             ->add('capacity')
             ->add('price')
             ->add('createdAt')
-            ->add('startDate')
-            ->add('endDate')
             ->add('description')
+            ->add('startDateTime')
+            ->add('endDateTime')
             ->add('speaker')
             ->add('createdBy')
         ;

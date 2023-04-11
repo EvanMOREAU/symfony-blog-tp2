@@ -33,21 +33,49 @@
         <source>Our center</source>
         <target>Centre de formation</target>
       </trans-unit>
+      <trans-unit id="Fs2luqI" resname="Pages list">
+        <source>Pages list</source>
+        <target>Liste des pages</target>
+      </trans-unit>
+      <trans-unit id="QBJrDp0" resname="New page">
+        <source>New page</source>
+        <target>Nouvelle page</target>
+      </trans-unit>
       <trans-unit id="SPDT05f" resname="Sign out">
         <source>Sign out</source>
-        <target>Déconnexion</target>
+        <target>Se déconnecter</target>
       </trans-unit>
       <trans-unit id="XiuOllA" resname="Sign up">
         <source>Sign up</source>
-        <target>Inscription</target>
+        <target>S'inscrire</target>
       </trans-unit>
       <trans-unit id="v9QCsvb" resname="Sign in">
         <source>Sign in</source>
-        <target>Connexion</target>
+        <target>Se Connecter</target>
       </trans-unit>
-      <trans-unit id="EDRROVB" resname="Catalogue">
-        <source>Catalogue</source>
-        <target>Catalogue</target>
+      <trans-unit id="gh4k6A." resname="Created by the SIO team">
+        <source>Created by the SIO team</source>
+        <target>SIO</target>
+      </trans-unit>
+      <trans-unit id="uLHYlMa" resname="Categories">
+        <source>Categories</source>
+        <target>Catégories</target>
+      </trans-unit>
+      <trans-unit id="1VXNNVq" resname="Categories list">
+        <source>Categories list</source>
+        <target>Liste des catégories</target>
+      </trans-unit>
+      <trans-unit id="GrHhIcD" resname="New category">
+        <source>New category</source>
+        <target>Nouvelle catégorie</target>
+      </trans-unit>
+      <trans-unit id="Vpskgqa" resname="Password:">
+        <source>Password:</source>
+        <target>Mot de passe:</target>
+      </trans-unit>
+      <trans-unit id="QoghNQ6" resname="login">
+        <source>login</source>
+        <target>Se connecter</target>
       </trans-unit>
     </body>
   </file>
