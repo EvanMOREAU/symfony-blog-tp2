@@ -12,8 +12,6 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'app_default')]
     public function index(TranslatorInterface $translator): Response
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => $translator->trans('Hello!'),
-        ]);
+        return $this->redirectToRoute('app_page_show', ['id' => 1]);
     }
 }

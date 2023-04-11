@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Content</th>
-                <td>{{ formation.content }}</td>
+                <td>{{ formation.content|raw }}</td>
             </tr>
             <tr>
                 <th>Capacity</th>
@@ -46,9 +46,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_formation_index') }}">back to list</a>
-
-    <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
-
-    {{ include('formation/_delete_form.html.twig') }}
 {% endblock %}

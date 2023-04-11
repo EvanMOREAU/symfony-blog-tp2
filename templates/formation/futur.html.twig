@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue des formations{% endblock %}
+
+{% block body %}
+    <h1>Formation index</h1>
+
+  <div id="carouselExample" class="carousel carousel-dark slide">
+        <div class="carousel-inner">
+            {% set i = 0 %}
+            {% for formationsPerThree in formations %}
+            {% set i = i + 1 %}
+                <div class="carousel-item {% if i == 1 %} active {% endif %}">
+                    <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="{{ asset('uploads/images/' ~ formationsPerThree[1].imageFilename) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ formationsPerThree[1].name }}</h5>
+                                <p class="card-text">{{ formationsPerThree[1].content }}</p>
+                                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas-{{ formationsPerThree[1].id }}" role="button" aria-controls="offcanvasExample">
+                                    Détails
+                                    </a>
+                                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-{{ formationsPerThree[1].id }}" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvas-{{ formationsPerThree[1].name }}">{{ formationsPerThree[1].name }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div align='center'>
+                                            <strong> Dates : </strong>{{ formationsPerThree[1].startDateTime ? formationsPerThree[1].startDateTime|date('d/m/Y') : '' }} - {{ formationsPerThree[1].endDateTime ? formationsPerThree[1].endDateTime|date('d/m/Y') : '' }}<br><hr>
+                                            <strong> Tarif :</strong> {{ formationsPerThree[1].price }}€<br><hr>
+                                            <strong> Capacité :</strong> {{ formationsPerThree[1].capacity }} personnes.<br><hr>
+                                            <strong> Contenu :</strong> {{ formationsPerThree[1].content }}<br><hr>
+                                            <strong> Description :</strong> {{ formationsPerThree[1].description }}<br><hr>
+                                            
+                                        </div>
+                                        <div class="dropdown mt-3">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                            Actions
+                                        </button>
+                                            <ul align='center' class="dropdown-menu">
+                                            
+                                                <li><a class="dropdown-item" href="/formation/pdf/{{ formationsPerThree[1].id }}">Installer la fiche PDF</a></li>
+                                                <!--<li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                <li><a class="dropdown-item" href="#">Action</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if formationsPerThree[2] is defined  %}
+                        <div class="col">
+                            <div class="card" style="width: 14rem;">
+                                <img src="{{ asset('uploads/images/' ~ formationsPerThree[2].imageFilename) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ formationsPerThree[2].name }}</h5>
+                                    <p class="card-text">{{ formationsPerThree[2].content }}</p>
+                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas-{{ formationsPerThree[2].id }}" role="button" aria-controls="offcanvasExample">
+                                        Détails
+                                        </a>
+                                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-{{ formationsPerThree[2].id }}" aria-labelledby="offcanvasExampleLabel">
+                                        <div class="offcanvas-header">
+                                            <h5 class="offcanvas-title" id="offcanvas-{{ formationsPerThree[2].name }}">{{ formationsPerThree[2].name }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                        </div>
+                                        <div class="offcanvas-body">
+                                            <div align='center'>
+                                                <strong> Dates : </strong>{{ formationsPerThree[2].startDateTime ? formationsPerThree[2].startDateTime|date('d/m/Y') : '' }} - {{ formationsPerThree[2].endDateTime ? formationsPerThree[2].endDateTime|date('d/m/Y') : '' }}<br><hr>
+                                                <strong> Tarif :</strong> {{ formationsPerThree[2].price }}€<br><hr>
+                                                <strong> Capacité :</strong> {{ formationsPerThree[2].capacity }} personnes.<br><hr>
+                                                <strong> Contenu :</strong> {{ formationsPerThree[2].content }}<br><hr>
+                                                <strong> Description :</strong> {{ formationsPerThree[2].description }}<br><hr>
+                                            </div>
+                                            <div class="dropdown mt-3">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                    Actions
+                                                </button>
+                                                <ul align='center' class="dropdown-menu">
+                                                
+                                                    <li><a class="dropdown-item" href="/formation/pdf/{{ formationsPerThree[2].id }}">Installer la fiche PDF</a></li>
+                                                    <!--<li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if formationsPerThree[3] is defined  %}
+                    <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="{{ asset('uploads/images/' ~ formationsPerThree[3].imageFilename) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ formationsPerThree[3].name }}</h5>
+                                <p class="card-text">{{ formationsPerThree[3].content }}</p>
+                                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas-{{ formationsPerThree[3].id }}" role="button" aria-controls="offcanvasExample">
+                                    Détails
+                                    </a>
+                                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-{{ formationsPerThree[3].id }}" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvas-{{ formationsPerThree[3].name }}">{{ formationsPerThree[3].name }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div align='center'>
+                                            <strong> Dates : </strong>{{ formationsPerThree[3].startDateTime ? formationsPerThree[3].startDateTime|date('d/m/Y') : '' }} - {{ formationsPerThree[3].endDateTime ? formationsPerThree[3].endDateTime|date('d/m/Y') : '' }}<br><hr>
+                                            <strong> Tarif :</strong> {{ formationsPerThree[3].price }}€<br><hr>
+                                            <strong> Capacité :</strong> {{ formationsPerThree[3].capacity }} personnes.<br><hr>
+                                            <strong> Contenu :</strong> {{ formationsPerThree[3].content }}<br><hr>
+                                            <strong> Description :</strong> {{ formationsPerThree[3].description }}<br><hr>
+                                            
+                                        </div>
+                                        <div class="dropdown mt-3">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                            Actions
+                                        </button>
+                                            <ul align='center' class="dropdown-menu">
+                                            
+                                                <li><a class="dropdown-item" href="/formation/pdf/{{ formationsPerThree[3].id }}">Installer la fiche PDF</a></li>
+                                                <!--<li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                <li><a class="dropdown-item" href="#">Action</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</div>
+{% endblock %}

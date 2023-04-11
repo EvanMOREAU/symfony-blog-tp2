@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formation index{% endblock %}
+{% block title %}Formations{% endblock %}
 
 {% block body %}
-    <h1>Formation index</h1>
+    <h1>Liste des formations</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Content</th>
-                <th>Capacity</th>
-                <th>Price</th>
-                <th>CreatedAt</th>
-                <th>Description</th>
-                <th>StartDateTime</th>
-                <th>EndDateTime</th>
-                <th>actions</th>
+                <th>Nom</th>
+                {#<th>Content</th>#}
+                {#<th>Capacité</th>#}
+                {#<th>Tarif</th>#}
+                {#<th>Date de création</th>#}
+                {#<th>Description</th>#}
+                {#<th>Date de début</th>#}
+                {#<th>Date de fin</th>#}
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,25 +25,27 @@
             <tr>
                 <td>{{ formation.id }}</td>
                 <td>{{ formation.name }}</td>
-                <td>{{ formation.content }}</td>
-                <td>{{ formation.capacity }}</td>
-                <td>{{ formation.price }}</td>
-                <td>{{ formation.createdAt ? formation.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ formation.description }}</td>
-                <td>{{ formation.startDateTime ? formation.startDateTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ formation.endDateTime ? formation.endDateTime|date('Y-m-d H:i:s') : '' }}</td>
+                {#<td>{{ formation.content }}</td>#}
+                {#<td>{{ formation.capacity }}</td>#}
+                {#<td>{{ formation.price }}</td>#}
+                {#<td>{{ formation.createdAt ? formation.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                {#<td>{{ formation.description }}</td>#}
+                {#<td>{{ formation.startDateTime ? formation.startDateTime|date('Y-m-d H:i:s') : '' }}</td>#}
+                {#<td>{{ formation.endDateTime ? formation.endDateTime|date('Y-m-d H:i:s') : '' }}</td>#}
                 <td>
-                    <a href="{{ path('app_formation_show', {'id': formation.id}) }}">show</a>
-                    <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
+                    <a class="btn btn-secondary btn-sm" href="{{ path('app_formation_show', {'id': formation.id}) }}"><i class="fa-solid fa-eye"></i></a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_formation_edit', {'id': formation.id}) }}"><i class="fa-solid fa-pen"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="{{ path('app_formation_duplicate', {'id': formation.id}) }}"><i class="fa-solid fa-copy"></i></a>
+                    {{ include('formation/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10">Il n'y a aucune formation !</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_formation_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('app_formation_new') }}"><i class="fa-solid fa-plus"></i> Nouvelle formation</a>
 {% endblock %}

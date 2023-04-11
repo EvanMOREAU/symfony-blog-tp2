@@ -77,6 +77,50 @@
         <source>login</source>
         <target>Se connecter</target>
       </trans-unit>
+      <trans-unit id="OHfRSIm" resname="Catalog">
+        <source>Catalog</source>
+        <target>Catalogue</target>
+      </trans-unit>
+      <trans-unit id="rbzzT7V" resname="Formations list">
+        <source>Formations list</source>
+        <target>Liste des formations</target>
+      </trans-unit>
+      <trans-unit id="p6S9IvC" resname="New formation">
+        <source>New formation</source>
+        <target>Nouvelle formation</target>
+      </trans-unit>
+      <trans-unit id="hCrEGET" resname="Formation catalog">
+        <source>Formation catalog</source>
+        <target>Catalogue</target>
+      </trans-unit>
+      <trans-unit id="YYO_CIP" resname="Download PDF">
+        <source>Download PDF</source>
+        <target>Télécharger le PDF</target>
+      </trans-unit>
+      <trans-unit id="HGMzUJ3" resname="show">
+        <source>show</source>
+        <target>Afficher</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="nz33U6Q" resname="Create new">
+        <source>Create new</source>
+        <target>Créer</target>
+      </trans-unit>
+      <trans-unit id="1jvfDvj" resname="An error has occured: ">
+        <source>An error has occured: </source>
+        <target>Une erreur est survenue : </target>
+      </trans-unit>
+      <trans-unit id="xlmg0O3" resname="Illustration">
+        <source>Illustration</source>
+        <target>Illustration</target>
+      </trans-unit>
+      <trans-unit id="az2SQK9" resname="Please upload a valid image file">
+        <source>Please upload a valid image file</source>
+        <target>Choisissez une image valide</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

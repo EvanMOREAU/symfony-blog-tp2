@@ -541,6 +541,18 @@
         <source>There is already an account with this email</source>
         <target>__There is already an account with this email</target>
       </trans-unit>
+      <trans-unit id="IaE5GBl" resname="You should agree to our terms.">
+        <source>You should agree to our terms.</source>
+        <target>__You should agree to our terms.</target>
+      </trans-unit>
+      <trans-unit id="YXZ26gK" resname="Please enter a password">
+        <source>Please enter a password</source>
+        <target>__Please enter a password</target>
+      </trans-unit>
+      <trans-unit id=".esazsm" resname="Your password should be at least {{ limit }} characters">
+        <source>Your password should be at least {{ limit }} characters</source>
+        <target>__Your password should be at least {{ limit }} characters</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
