@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <p align="center">
+        Informations sur l'éditeur du site :<br>
+        Nom de l'entreprise : [Nom de l'entreprise]<br>
+        Forme juridique : [Forme juridique de l'entreprise]<br>
+        Adresse : [Adresse de l'entreprise]<br>
+        Numéro de téléphone : [Numéro de téléphone de l'entreprise]<br>
+        Adresse e-mail : [Adresse e-mail de l'entreprise]<br>
+        Numéro d'immatriculation : [Numéro d'immatriculation de l'entreprise]<br>
+        Capital social : [Capital social de l'entreprise]<br>
+        Directeur de la publication : [Nom du directeur de la publication]<br>
+        <br>
+        Hébergement du site :<br>
+        Nom de l'hébergeur : [Nom de l'hébergeur]<br>
+        Adresse : [Adresse de l'hébergeur]<br>
+        Numéro de téléphone : [Numéro de téléphone de l'hébergeur]<br>
+        Adresse e-mail : [Adresse e-mail de l'hébergeur]<br>
+
+        Propriété intellectuelle :<br>
+        Le contenu de ce site web (textes, images, vidéos, etc.) est protégé par le droit de la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable de l'éditeur du site.<br>
+        <br>
+        Collecte et traitement des données personnelles :<br>
+        Les données personnelles collectées sur ce site sont utilisées uniquement dans le cadre des services proposés. Elles ne seront en aucun cas transmises à des tiers sans consentement préalable de l'utilisateur.<br>
+        <br>
+        Cookies :<br>
+        Ce site utilise des cookies pour améliorer l'expérience de navigation de l'utilisateur. Les cookies sont de petits fichiers stockés sur l'ordinateur de l'utilisateur et permettent une personnalisation de la navigation. L'utilisateur peut refuser l'utilisation des cookies en modifiant les paramètres de son navigateur.<br>
+        <br>
+        Liens externes :<br>
+        Ce site peut contenir des liens vers des sites externes. L'éditeur du site ne peut être tenu responsable du contenu de ces sites ou des dommages qui pourraient en résulter.<br>
+        <br>
+        Limitation de responsabilité :<br>
+        L'éditeur du site ne peut être tenu responsable des erreurs ou omissions présentes sur ce site. Les informations fournies sont données à titre indicatif et peuvent être modifiées à tout moment.<br>
+    </p>
+{% endblock %}

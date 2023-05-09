@@ -68,30 +68,6 @@ class FormationController extends AbstractController
         return $pdf->Output('fcpro-formation-' . $formation->getId() . '.pdf', 'I');
     }
 
-    #[Route('/futur', name: 'app_formation_futur', methods: ['GET'])]
-    public function futur(FormationRepository $formationRepository): Response
-    {
-        $formationsPerThree = array();
-
-        $formations = $formationRepository->findAllInTheFuture();
-
-        $i = 0;
-        $j = 1;
-        foreach ($formations as $formation){
-            $i++;
-            if($i>3){
-            $j++; $i=1;
-            }
-        $formationsPerThree[$j][$i] = $formation;
-        }
-        dump($formation);
-        dump($formationsPerThree);
-
-        return $this->render('formation/futur.html.twig', [
-            'formations' => $formationsPerThree,
-        ]);
-    }
-
     #[Route('/{id}/duplicate', name: 'app_formation_duplicate', methods: ['GET', 'POST'])]
     public function duplicate(Request $request, FormationRepository $formationRepository, TranslatorInterface $translator, Formation $formation): Response
     {
@@ -124,6 +100,27 @@ class FormationController extends AbstractController
         ]);
     }
     */
+
+    #[Route('/futur', name: 'app_formation_futur', methods: ['GET'])]
+    public function futur(FormationRepository $formationRepository): Response
+    {
+        $formationsPerThree = array();
+
+        $formations = $formationRepository->findAllInTheFuture();
+
+        $i=1; $j=0;
+        foreach ($formations as $formation) {
+            $i++;
+            if ($i>3) {
+                $j++; $i=1;
+            }
+            $formationsPerThree[$j][$i] = $formation;
+        }
+        dump($formations);
+        dump($formationsPerThree);
+        
+        return $this->render('formation/futur.html.twig', ['formationsPerThree' => $formationsPerThree,]);
+    }
 
     #[Route('/catalog', name: 'app_formation_catalog', methods: ['GET'])]
     public function catalog(FormationRepository $formationRepository): Response
@@ -163,7 +160,7 @@ class FormationController extends AbstractController
             }
             $formationRepository->save($formation, true);
 
-            return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);
+            //return $this->redirectToRoute('app_formation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('formation/new.html.twig', [

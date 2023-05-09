@@ -107,3 +107,16 @@ html {
     height:60px;   /* Height of the footer */
     background:#6cf;
  }
+
+ .line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+ }
+ .ch-max-25 {
+  display:inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 25ch;
+}

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FormationRepository;
 
 #[ORM\Entity(repositoryClass: FormationRepository::class)]
-#[ORM\Table(name: "formation")]
+#[ORM\Table(name: "tbl_formation")]
 class Formation
 {
     #[ORM\Id]

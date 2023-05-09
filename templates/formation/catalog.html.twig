@@ -11,12 +11,12 @@
             <img src="{{ asset('uploads/images/' ~ formation.imageFileName) }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ formation.name }}</h5>
-                <p class="card-text">{{ formation.content|raw }}</p>
+                <p class="card-text"><div class="line-clamp">{{ formation.content|raw }}</div></p>
                 <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas-{{ formation.id }}" role="button"
                     aria-controls="offcanvasExample">
                     Détails
                 </a>
-                <div class="btn btn-secondary">PDF</div>
+                <a href="/formation/pdf/{{ formation.id }}" target="_blank" class="btn btn-secondary">PDF</a>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-{{ formation.id }}"
                     aria-labelledby="offcanvasExampleLabel">
                     <div class="offcanvas-header">
@@ -32,7 +32,7 @@
                             <hr>
                             <strong> Capacité :</strong> {{ formation.capacity }} personnes.<br>
                             <hr>
-                            <strong> Contenu :</strong> {{ formation.content|raw }}<br>
+                            <strong> Contenu :</strong>{{ formation.content|raw }}<br>
                             <hr>
                             <strong> Description :</strong> {{ formation.description }}<br>
                             <hr>
